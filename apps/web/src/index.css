@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 60% 97%;
+    --foreground: 20 30% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 30% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 30% 20%;
+    --primary: 14 82% 60%;
+    --primary-foreground: 40 60% 98%;
+    --secondary: 165 45% 78%;
+    --secondary-foreground: 175 40% 20%;
+    --muted: 40 45% 92%;
+    --muted-foreground: 25 18% 42%;
+    --accent: 45 95% 66%;
+    --accent-foreground: 25 40% 20%;
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 35% 86%;
+    --input: 30 35% 86%;
+    --ring: 14 82% 60%;
+    --radius: 1.5rem;
+    --berry: 330 62% 62%;
+    --sky: 196 70% 72%;
+  }
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow-x: clip;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Baloo 2', 'Quicksand', cursive;
+}
+
+.paper {
+  background-image: radial-gradient(hsl(30 40% 80% / 0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.wiggle-hover {
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wiggle-hover:hover {
+  transform: rotate(-1.5deg) translateY(-4px);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.underline-marker {
+  background: linear-gradient(hsl(var(--accent) / 0.75), hsl(var(--accent) / 0.75)) no-repeat;
+  background-size: 100% 0.38em;
+  background-position: 0 82%;
+  padding: 0 0.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .wiggle-hover:hover { transform: none; }
+}
